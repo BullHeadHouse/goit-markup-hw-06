@@ -421,6 +421,17 @@
             </li>
           </ul>
         </div>
+
+        <div class="mailing-form">
+          <h2 class="footer-header">Подпишитесь на рассылку</h2>
+          <input
+            type="email"
+            name="mail"
+            id="mailing-mail"
+            placeholder="E-mail"
+          />
+          <button type="submit">Подписаться</button>
+        </div>
       </div>
     </footer>
 
@@ -430,10 +441,61 @@
         <button data-modal-close class="modal-close">
           <svg class="icon" width="18" height="18">
             <use href="./images/icons.svg#cross"></use>
-          </svg
+          </svg>
         </button>
+
+        <form class="order-form js-speaker-form">
+          <b class="form-title">Оставьте свои данные, мы вам перезвоним</b>
+          <div class="form-field">
+            <label for="name">Имя</label>
+            <input type="text" name="name" id="name" />
+          </div>
+
+          <div class="form-field">
+            <label for="tel">Телефон</label>
+            <input type="tel" name="tel" id="tel" />
+          </div>
+
+          <div class="form-field">
+            <label for="mail">Почта</label>
+            <input type="email" name="mail" id="mail" />
+          </div>
+          <div class="form-field">
+            <label for="comment">Комментарий</label>
+            <textarea
+              name=""
+              id="comment"
+              rows="5"
+              placeholder="Введите текст..."
+            ></textarea>
+          </div>
+          <div class="form-field">
+            <input type="checkbox" name="agreement" id="agreement" />
+            <label for="agreement"
+              >Соглашаюсь с рассылкой и принимаю Условия договора</label
+            >
+          </div>
+
+          <button type="submit" class="button primary modbutton">
+            Отправить
+          </button>
+        </form>
       </div>
     </div>
     <script src="./js/modal.js"></script>
+
+    <script>
+      (() => {
+        document
+          .querySelector('.js-speaker-form')
+          .addEventListener('submit', e => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+              console.log(`${name}: ${value}`),
+            );
+          });
+      })();
+    </script>
   </body>
 </html>

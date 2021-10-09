@@ -82,7 +82,8 @@ textarea {
 .street-address,
 .footer-icon,
 .bdackdrop,
-.modal-close {
+.modal-close,
+.mailing-form input {
   transition-property: color, background-color, box-shadow, transform, opacity,
     border;
   transition-duration: 250ms;
@@ -198,6 +199,10 @@ textarea {
   text-transform: uppercase;
 }
 .button {
+  width: 200px;
+  border: none;
+  border-radius: 4px;
+
   background-color: var(--primary-text-color);
   color: var(--white-color);
 
@@ -207,18 +212,16 @@ textarea {
   line-height: 1.88;
   letter-spacing: 0.06em;
   cursor: pointer;
-
-  border: none;
-  border-radius: 4px;
 }
 .button.primary {
-  padding: 10px 32px;
+  padding: 10px;
 
   background-color: var(--accent-color);
   color: var(--white-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
-.button.primary:hover {
+.button.primary:hover,
+.button.primary:focus {
   background-color: rgb(34, 143, 233);
 }
 
@@ -537,18 +540,40 @@ textarea {
   background-color: var(--accent-color);
 }
 .mailing-form {
-  width: 570px;
   height: 86px;
   margin-top: 12px;
   margin-left: 93px;
+
+  color: rgba(255, 255, 255, 0.6);
 }
 .mailing-form input {
   width: 358px;
-  margin-right: 12px;
-  padding: 15px;
+  margin-right: 10px;
+  padding: 15px 16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
+
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.6);
   background-color: var(--hero-footer-bgc);
+}
+.mailing-form input:hover,
+.mailing-form input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+.mailing-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-form,
+.footer-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mailing-form svg {
+  margin-left: 10px;
 }
 
 /* BACKDROP */
@@ -561,7 +586,6 @@ textarea {
   height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.2);
-
   transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
@@ -578,8 +602,8 @@ textarea {
   transform: translate(-50%, -50%);
   transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  display: flex;
-  justify-content: flex-end;
+  /* display: flex;
+  justify-content: flex-end; */
 
   min-width: 528px;
   min-height: 581px;
@@ -590,8 +614,7 @@ textarea {
   border-radius: 4px;
 }
 .modal-close {
-  margin-top: 8px;
-  margin-right: 8px;
+  margin: 8px 8px 0 auto;
   padding: 0;
   width: 30px;
   height: 30px;
@@ -602,30 +625,28 @@ textarea {
   cursor: pointer;
 }
 .order-form {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  outline: 1px solid darkcyan;
+  outline: 2px solid chartreuse;
   margin-left: auto;
   margin-right: auto;
-  padding: 40px;
+  padding: 0 40px 40px;
 }
 .form-title {
   display: inline-block;
-  margin-bottom: 12px;
+  text-align: center;
+  margin: 10px auto 12px;
   width: 100%;
 
   font-weight: var(--weight-bold);
   font-size: 20px;
   line-height: 1.15;
-  text-align: center;
 }
 .form-field {
+  position: relative;
   display: flex;
   flex-direction: column;
-  /* outline: 2px solid hotpink; */
+  outline: 2px solid hotpink;
   margin-bottom: 20px;
 }
 .form-field label {
@@ -633,16 +654,18 @@ textarea {
 
   color: #757575;
 }
-.form-field input,
-.form-field textarea {
+/* .footer-form button {
+} */
+.form-input {
+  font-size: 12px;
+  line-height: 1.17;
   padding: 10px 6px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
 }
-.modbutton {
-  margin-left: 100px;
-  width: 200px;
-  height: 50px;
-  padding: 10px 55px;
+.modal-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

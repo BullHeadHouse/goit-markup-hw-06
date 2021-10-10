@@ -10,6 +10,7 @@
   --footerlink-color: rgba(255, 255, 255, 0.6);
   --weight-bold: 700;
   --main-icon: #afb1b8;
+  --label-color: #757575;
 }
 
 /* MAJOR ELEMENTS */
@@ -83,7 +84,9 @@ textarea {
 .footer-icon,
 .bdackdrop,
 .modal-close,
-.mailing-form input {
+.mailing-form input,
+.form-input,
+.form-comment {
   transition-property: color, background-color, box-shadow, transform, opacity,
     border;
   transition-duration: 250ms;
@@ -597,16 +600,12 @@ textarea {
 }
 .modal {
   position: absolute;
+  min-width: 528px;
+  min-height: 581px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* display: flex;
-  justify-content: flex-end; */
-
-  min-width: 528px;
-  min-height: 581px;
 
   background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -627,7 +626,7 @@ textarea {
 .order-form {
   width: 100%;
   height: 100%;
-  outline: 2px solid chartreuse;
+  /* outline: 2px solid chartreuse; */
   margin-left: auto;
   margin-right: auto;
   padding: 0 40px 40px;
@@ -646,26 +645,41 @@ textarea {
   position: relative;
   display: flex;
   flex-direction: column;
-  outline: 2px solid hotpink;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
-.form-field label {
+.form-field label:not(:last-child) {
   margin-bottom: 4px;
-
-  color: #757575;
-}
-/* .footer-form button {
-} */
-.form-input {
   font-size: 12px;
   line-height: 1.17;
-  padding: 10px 6px;
+  letter-spacing: 0.01em;
+  color: var(--label-color);
+}
+
+.form-input,
+.form-comment {
+  outline: none;
+  padding: 10px 12px 10px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
-  box-sizing: border-box;
   border-radius: 4px;
 }
-.modal-icon {
+.form-input:focus,
+.form-comment:focus,
+.form-input:focus + .form-icon {
+  fill: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.form-comment {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.form-comment::placeholder {
+  margin: 30px 10px;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-icon {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 12px;
+  display: inline-block;
 }

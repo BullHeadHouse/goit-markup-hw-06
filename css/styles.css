@@ -652,7 +652,6 @@ textarea {
 }
 .form-label,
 .form-comment::placeholder {
-  margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
@@ -661,6 +660,7 @@ textarea {
 
 .form-input,
 .form-comment {
+  margin-top: 4px;
   height: 40px;
   outline: none;
   padding-left: 42px;
@@ -693,7 +693,6 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 30px;
 
   color: var(--label-color);
   line-height: 1.71;
@@ -729,5 +728,5 @@ textarea {
 }
 .order-form button {
   display: block;
-  margin: 0 auto;
+  margin: 30px auto 0;
 }
